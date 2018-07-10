@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>My Wiki</title>
+    
+    <link rel="stylesheet" href="../../semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script href="../../semantic/dist/semantic.min.js"></script>
+</head>
+<body>
+    <div class="ui segment">
+        <div class="ui secondary pointing menu">
+            <a class="item active" id="search-menu" data-target="find-matter-container">
+                Buscar
+            </a>
+            <a class="item" id="add-menu" data-target="new-matter-container">
+                Adicionar
+            </a>
+            <div class="right menu"  id="close-menu">
+                <a class="ui item">
+                    Fechar
+                </a>
+            </div>
+        </div>
+    
+        <div id="new-matter-container" class="ui segment">
+            <form class="ui form" id="new-matter-form">
+                <div class="field">
+                    <label>Chave</label>
+                    <input type="text" name="key" placeholder="Digrafo">
+                </div>
+                <div class="field">
+                    <label>Descrição</label>
+                    <textarea rows=2 name="description" placeholder="Grafo orientado"></textarea>
+                </div>
+                <div class="ui list">
+                    <div class="item" id="keywords-list">
+                        <div class="field">
+                            <input type="text" name="key" placeholder="Digrafo">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Chave</label>
+                    <input type="text" name="key" placeholder="Digrafo">
+                </div>
+                <div class="field">
+                    <label>Assunto</label>
+                    <input type="text" name="subject" placeholder="Grafos">
+                </div>
+                <button class="ui button" type="submit">Salvar</button>
+            </form>
+        </div>
+        
+        <div id="find-matter-container" class="ui segment">
+            <form class="ui form" id="find-matter-form">
+                <div class="ui icon input" id='search-input-container'>
+                    <input type="text" placeholder="Buscar...">
+                    <i class="search icon"></i>
+                </div>    
+            </form>
+
+            <table class="ui celled table" id="result-table">
+                <thead>
+                    <tr>
+                        <th>Chave</th>
+                        <th>Descrição</th>
+                        <th>Palavras-Chave</th>
+                        <th>Assunto</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="../js/main.js"></script>
+</html>
+
