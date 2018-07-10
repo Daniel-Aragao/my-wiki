@@ -1,0 +1,21 @@
+{
+  "name": "my-wiki",
+  "version": "1.0.0",
+  "description": "Key and description searcher and register",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wiki"
+  ],
+  "author": "Daniel Aragão Abreu Filho",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.4"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0",
+    "semantic-ui": "^2.3.3"
+  }
+}
