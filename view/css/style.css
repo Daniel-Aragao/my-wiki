@@ -2,7 +2,13 @@ html,body{
     height: 100%;
     width: 100%;
 }
-
+body{
+    padding-top: 10px;
+}
 .backgroud-dark{
     background-color: #1e212f;    
+}
+
+.hidden{
+    visibility: hidden !important;
 }

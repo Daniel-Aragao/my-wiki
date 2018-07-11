@@ -5,76 +5,105 @@
     <title>My Wiki</title>
     
     <link rel="stylesheet" href="../../semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="../css/semantic.superhero.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <script href="../../semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="../css/toastr.min.css">
+    <script>window.$ = window.jQuery = require('jquery');</script>
+
+    <script>window.toastr = require('toastr')</script>
+    
+    <script src="../../semantic/dist/semantic.min.js"></script>
+
+    <script src="../js/serialize-0.2.js"></script>
 </head>
 <body>
-    <div class="ui segment">
-        <div class="ui secondary pointing menu">
-            <a class="item active" id="search-menu" data-target="find-matter-container">
-                Buscar
-            </a>
-            <a class="item" id="add-menu" data-target="new-matter-container">
-                Adicionar
-            </a>
-            <div class="right menu"  id="close-menu">
-                <a class="ui item">
-                    Fechar
+    <div class="ui grid container">
+        <div class="ui segment wide column centered">
+            <div class="ui secondary pointing menu">
+                <a class="item active" id="search-menu" data-target="find-matter-container">
+                    Buscar
                 </a>
+                <a class="item" id="add-menu" data-target="new-matter-container">
+                    Adicionar
+                </a>
+                <a class="item disabled" id="edit-menu" data-target="new-matter-container">
+                    Editar
+                </a>
+                <div class="right menu"  id="close-menu">
+                    <a class="ui item">
+                        Sair
+                    </a>
+                </div>
             </div>
-        </div>
-    
-        <div id="new-matter-container" class="ui segment">
-            <form class="ui form" id="new-matter-form">
-                <div class="field">
-                    <label>Chave</label>
-                    <input type="text" name="key" placeholder="Digrafo">
-                </div>
-                <div class="field">
-                    <label>Descrição</label>
-                    <textarea rows=2 name="description" placeholder="Grafo orientado"></textarea>
-                </div>
-                <div class="ui list">
-                    <div class="item" id="keywords-list">
-                        <div class="field">
-                            <input type="text" name="key" placeholder="Digrafo">
+            
+            <div id="new-matter-container" class="ui segment">
+                <form class="ui form" id="new-matter-form">
+                    <div class="field">
+                        <label>Chave</label>
+                        <div class="ui input">
+                            <input type="text" name="key" id="key" placeholder="Digrafo">
                         </div>
                     </div>
-                </div>
-                <div class="field">
-                    <label>Chave</label>
-                    <input type="text" name="key" placeholder="Digrafo">
-                </div>
-                <div class="field">
-                    <label>Assunto</label>
-                    <input type="text" name="subject" placeholder="Grafos">
-                </div>
-                <button class="ui button" type="submit">Salvar</button>
-            </form>
-        </div>
-        
-        <div id="find-matter-container" class="ui segment">
-            <form class="ui form" id="find-matter-form">
-                <div class="ui icon input" id='search-input-container'>
-                    <input type="text" placeholder="Buscar...">
-                    <i class="search icon"></i>
-                </div>    
-            </form>
-
-            <table class="ui celled table" id="result-table">
-                <thead>
-                    <tr>
-                        <th>Chave</th>
-                        <th>Descrição</th>
-                        <th>Palavras-Chave</th>
-                        <th>Assunto</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+                    <div class="field">
+                        <label>Descrição</label>
+                        <textarea rows=2 name="description" id="description" placeholder="Grafo orientado"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Palavras-Chave</label>
+                        <button class="ui icon button" type="button" id="add-input">
+                            <i class="plus icon"></i>
+                        </button>
+                    </div>
+                    <div class="ui grid">
+                        <div class="ui list eight wide column" id="keywords-list">
+                            <div class="item">
+                                <div class="ui action input">
+                                    <input type="text" placeholder="Search...">
+                                    <button class="ui icon button">
+                                        <i class="search icon"></i>
+                                    </button>
+                                </div>
+                                <div class="field">
+                                    <input type="text" name="key" placeholder="Digrafo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Assunto</label>
+                        <input type="text" name="subject" id="subject" placeholder="Grafos">
+                    </div>
+                    <button class="ui green button" type="submit">Salvar</button>
+                    <button class="ui red button hidden" id="cancel-edition" type="button">Cancelar</button>
+                </form>
+            </div>
+            
+            <div id="find-matter-container" class="ui segment">
+                <form class="ui form" id="find-matter-form">
+                    <div class="ui icon input" id='search-input-container'>
+                        <input type="text" placeholder="Buscar..." id="search-filter">
+                        <i class="search icon"></i>
+                    </div>    
+                </form>
+                
+                <table class="ui celled table" id="result-table">
+                    <thead>
+                        <tr>
+                            <!-- <th>Opções</th> -->
+                            <th>Chave</th>
+                            <th>Descrição</th>
+                            <th>Palavras-Chave</th>
+                            <th>Assunto</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody id="keys-founded"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
 <script src="../js/main.js"></script>
 </html>
-
+    
+    

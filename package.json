@@ -18,7 +18,9 @@
     "electron": "^2.0.4"
   },
   "dependencies": {
+    "jquery": "^3.3.1",
     "nedb": "^1.8.0",
-    "semantic-ui": "^2.3.3"
+    "semantic-ui": "^2.3.3",
+    "toastr": "^2.1.4"
   }
 }

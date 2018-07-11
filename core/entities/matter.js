@@ -1,5 +1,5 @@
 let Matter = function (key, description, keywords, subject){
-    this.key = key;
+    this._id = key;
     this.description = description;
     this.keywords = keywords? keywords : [];
     this.subject = subject;
@@ -8,17 +8,27 @@ let Matter = function (key, description, keywords, subject){
         this.keywords.push(word);
     }
 
-    this.getKeyWord = function(separator){
+    this.addKeywords = function(list){
+        let self = this;
+        list.forEach(function(item){
+            self.addKeyword(item);
+        });
+    }
+
+    this.getKeyWords = function(separator){
         let result = "";
         
-        if(!keywords.length){
+        if(keywords && !keywords.length){
             return result;
         }
 
-        separator = separator ? separator : ", ";
+        separator =  separator? separator :", ";
 
-        this.keywords.forEach(keyword => {
-            result += keyword;
+        this.keywords.forEach((keyword, index) => {
+            result += keyword ;
+            if(this.keywords.length - 1 != index){
+                result += separator
+            }
         });
 
         return result;
