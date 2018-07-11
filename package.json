@@ -6,8 +6,8 @@
   "scripts": {
     "start": "electron .",
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=misc/icons/icon.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=misc/icons/books.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"MyWiki\"",
-    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=misc/icons/books.png --prune=true --out=release-builds"
+    "package-win": "electron-packager . MyWiki-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=misc/icons/books.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"MyWiki\"",
+    "package-linux": "electron-packager . MyWiki-app --overwrite --asar=true --platform=linux --arch=x64 --icon=misc/icons/books.png --prune=true --out=release-builds"
   },
   "keywords": [
     "wiki"
@@ -15,7 +15,8 @@
   "author": "Daniel Aragão Abreu Filho",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^2.0.4"
+    "electron": "^2.0.4",
+    "electron-packager": "^12.1.0"
   },
   "dependencies": {
     "jquery": "^3.3.1",
